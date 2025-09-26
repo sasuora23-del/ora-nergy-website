@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aides & Subventions - Ora Nergy</title>
+    <meta name="description" content="Découvrez toutes les aides financières disponibles pour vos travaux de rénovation énergétique">
+    <link rel="icon" href="images/ora-nergy-favicon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        
+        
+        
+        
+        
+        .chat-messages {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .chat-message {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .message-time {
+            font-size: 0.75rem;
+            color: var(--gray-400);
+            margin-left: auto;
+            white-space: nowrap;
+        }
+        
+        .message-content {
+            background: var(--gray-100);
+            padding: 0.75rem 1rem;
+            border-radius: 1rem;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+        
+        .chat-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .chat-btn {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+        
+        .chat-btn:hover {
+            background: var(--primary-cyan);
+        }
+        
+        .aide-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .aide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px rgba(0,0,0,0.1);
+        }
+        
+        .aide-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-cyan));
+        }
+        
+        .aide-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .aide-icon.maprimerenov { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .aide-icon.cee { background: linear-gradient(135deg, #10b981, #059669); }
+        .aide-icon.ecoptz { background: linear-gradient(135deg, #f59e0b, #d97706); }
+        .aide-icon.tva { background: linear-gradient(135deg, #ef4444, #dc2626); }
+        
+        .aide-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+        
+        .aide-amount {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+        
+        .aide-description {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .aide-conditions {
+            background: var(--gray-50);
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+        
+        .aide-conditions h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--gray-900);
+            font-size: 1rem;
+        }
+        
+        .aide-conditions ul {
+            margin: 0;
+            padding-left: 1rem;
+            color: var(--gray-700);
+        }
+        
+        .aide-conditions li {
+            margin-bottom: 0.25rem;
+        }
+        
+        .aide-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary-green);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Styles pour l'Assistant Virtuel */
+        .assistant-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        .assistant-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 2px solid var(--primary-green);
+        }
+
+        .assistant-header {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-cyan));
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .assistant-header h3 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .assistant-content {
+            padding: 2rem;
+        }
+
+        .messages-container {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 2rem;
+        }
+
+        .message {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .user-message .message-avatar {
+            background: var(--gray-400);
+        }
+
+        .message-content {
+            background: var(--gray-50);
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            flex: 1;
+            line-height: 1.6;
+        }
+
+        .user-message .message-content {
+            background: var(--primary-green);
+            color: white;
+            margin-left: auto;
+            max-width: 70%;
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option-btn {
+            background: white;
+            border: 2px solid var(--gray-200);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .option-btn:hover {
+            border-color: var(--primary-green);
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .input-container {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        #user-input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+        }
+
+        .send-btn {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .send-btn:hover {
+            background: var(--primary-cyan);
+        }
+
+        .assistant-progress {
+            background: var(--gray-50);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            margin-right: 1rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-cyan));
+            transition: width 0.5s ease;
+        }
+
+        #progress-text {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            font-weight: 600;
+        }
+
+        .results-container {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-cyan));
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-top: 2rem;
+        }
+
+        .results-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .result-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+
+        .result-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .assistant-content {
+                padding: 1rem;
+            }
+            
+            .options-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .input-container {
+                flex-direction: column;
+            }
+            
+            #user-input {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html">
+                <img src="images/ora-nergy-logo.png" alt="Ora Nergy Logo" class="logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="accueil">Accueil</a></li>
+                <li><a href="solutions.html" class="solutions">Nos Solutions</a></li>
+                
+                <li><a href="realisations.html" class="realisations">Réalisations</a></li>
+                <li><a href="aides-subventions.html" class="aides">Aides & Subventions</a></li>
+                
+                <li><a href="devenir-partenaire.html" class="services">Devenir Partenaire</a></li>
+                
+                <li><a href="contact.html" class="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+        <div class="hero-content">
+            <div class="hero-badge">💰 Simulateur d'aides financières</div>
+            <h1>Calculez vos aides financières</h1>
+            <p>Découvrez toutes les aides disponibles pour vos travaux de rénovation énergétique</p>
+            <div class="hero-buttons">
+                <a href="#simulateur" class="btn btn-primary">
+                    🧮 Simuler mes aides
+                </a>
+                <a href="tel:0745058029" class="btn btn-secondary">
+                    📞 07 45 05 80 29
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Simulateur -->
+    <section class="section section-white" id="simulateur">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Simulateur d'Aides Financières</h2>
+                <p class="section-subtitle">Découvrez en quelques clics les aides auxquelles vous avez droit</p>
+            </div>
+
+            <!-- Assistant Virtuel -->
+            <div id="assistant-virtuel" class="assistant-container" style="display: none;">
+                <div class="assistant-card">
+                    <div class="assistant-header">
+                        <h3>🤖 Assistant Virtuel Ora Nergy</h3>
+                        <button id="close-assistant" class="close-btn">&times;</button>
+                    </div>
+                    
+                    <div class="assistant-content">
+                        <div id="assistant-messages" class="messages-container">
+                            <div class="message bot-message">
+                                <div class="message-avatar">🤖</div>
+                                <div class="message-content">
+                                    <p>Bonjour ! Je suis votre assistant virtuel Ora Nergy. Je vais vous aider à calculer vos aides financières en quelques questions simples.</p>
+                                    <p>Commençons ! Votre projet concerne :</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div id="assistant-options" class="options-container">
+                            <button class="option-btn" data-value="maison" data-question="type-logement">
+                                🏠 Une maison
+                            </button>
+                            <button class="option-btn" data-value="appartement" data-question="type-logement">
+                                🏢 Un appartement
+                            </button>
+                        </div>
+                        
+                        <div id="assistant-input" class="input-container" style="display: none;">
+                            <input type="text" id="user-input" placeholder="Tapez votre réponse...">
+                            <button id="send-input" class="send-btn">Envoyer</button>
+                        </div>
+                    </div>
+                    
+                    <div class="assistant-progress">
+                        <div class="progress-bar">
+                            <div id="progress-fill" class="progress-fill" style="width: 10%;"></div>
+                        </div>
+                        <span id="progress-text">Étape 1 sur 8</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bouton pour ouvrir l'assistant -->
+            <div class="text-center animate-on-scroll">
+                <button id="start-simulator" class="btn btn-primary btn-lg">
+                    🚀 Commencer la simulation
+                </button>
+                <p style="margin-top: 1rem; color: var(--gray-600);">
+                    ⏱️ Simulation en 2 minutes • 🎯 Résultats personnalisés • 📞 Accompagnement gratuit
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Aides Disponibles -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Les aides disponibles</h2>
+                <p class="section-subtitle">Découvrez toutes les aides financières pour vos travaux de rénovation énergétique</p>
+            </div>
+
+            <div class="cards-grid">
+                <!-- MaPrimeRénov' - MONTANT MODIFIÉ -->
+                <div class="aide-card animate-on-scroll">
+                    <div class="aide-badge">Aide de l'État</div>
+                    <div class="aide-icon maprimerenov">🏠</div>
+                    <h3 class="aide-title">MaPrimeRénov'</h3>
+                    <div class="aide-amount">Jusqu'à 20 000€</div>
+                    <p class="aide-description">Aide de l'État pour la rénovation énergétique</p>
+                    <div class="aide-conditions">
+                        <h4>Conditions :</h4>
+                        <ul>
+                            <li>Propriétaire occupant ou bailleur</li>
+                            <li>Logement de plus de 15 ans</li>
+                            <li>Travaux réalisés par un professionnel RGE</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Prime CEE - MONTANT MODIFIÉ -->
+                <div class="aide-card animate-on-scroll">
+                    <div class="aide-badge">Certificats d'Économies d'Énergie</div>
+                    <div class="aide-icon cee">⚡</div>
+                    <h3 class="aide-title">Prime CEE</h3>
+                    <div class="aide-amount">Selon les travaux</div>
+                    <p class="aide-description">Certificats d'Économies d'Énergie</p>
+                    <div class="aide-conditions">
+                        <h4>Conditions :</h4>
+                        <ul>
+                            <li>Tous propriétaires et locataires</li>
+                            <li>Travaux d'efficacité énergétique</li>
+                            <li>Professionnel RGE obligatoire</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Éco-PTZ -->
+                <div class="aide-card animate-on-scroll">
+                    <div class="aide-badge">Prêt à taux zéro</div>
+                    <div class="aide-icon ecoptz">🏦</div>
+                    <h3 class="aide-title">Éco-PTZ</h3>
+                    <div class="aide-amount">Jusqu'à 50 000€</div>
+                    <p class="aide-description">Prêt à taux zéro pour la rénovation</p>
+                    <div class="aide-conditions">
+                        <h4>Conditions :</h4>
+                        <ul>
+                            <li>Propriétaire occupant ou bailleur</li>
+                            <li>Logement achevé depuis plus de 2 ans</li>
+                            <li>Bouquet de travaux</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- TVA à 5,5% -->
+                <div class="aide-card animate-on-scroll">
+                    <div class="aide-badge">Réduction fiscale</div>
+                    <div class="aide-icon tva">💰</div>
+                    <h3 class="aide-title">TVA à 5,5%</h3>
+                    <div class="aide-amount">Taux de TVA réduit</div>
+                    <p class="aide-description">Taux de TVA réduit</p>
+                    <div class="aide-conditions">
+                        <h4>Conditions :</h4>
+                        <ul>
+                            <li>Logement de plus de 2 ans</li>
+                            <li>Travaux d'amélioration énergétique</li>
+                            <li>Matériaux et main d'œuvre</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Rénovation d'ampleur -->
+                <div class="aide-card animate-on-scroll">
+                    <div class="aide-badge">Parcours accompagné</div>
+                    <div class="aide-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">🏗️</div>
+                    <h3 class="aide-title">Rénovation d'ampleur</h3>
+                    <div class="aide-amount">Jusqu'à 32 000€</div>
+                    <p class="aide-description">Parcours accompagné pour une rénovation globale</p>
+                    <div class="aide-conditions">
+                        <h4>Conditions :</h4>
+                        <ul>
+                            <li>Gain de 2 classes DPE minimum</li>
+                            <li>Accompagnement Mon Accompagnateur Rénov'</li>
+                            <li>Audit énergétique obligatoire</li>
+                            <li>Travaux réalisés par un professionnel RGE</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Cumul des Aides -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Cumul des Aides</h2>
+                <p class="section-subtitle">Maximisez vos économies en cumulant plusieurs dispositifs</p>
+            </div>
+            
+            <div class="cards-grid-2">
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">📊</div>
+                    <h3 class="card-title">Exemple de cumul</h3>
+                    <p class="card-description">Pour une pompe à chaleur air/eau :</p>
+                    <ul class="card-list">
+                        <li>MaPrimeRénov' : jusqu'à 5 000€</li>
+                        <li>Prime CEE : jusqu'à 5 000€</li>
+                        <li>TVA à 5,5% : sur l'ensemble</li>
+                        <li>Éco-PTZ : financement du reste à charge</li>
+                    </ul>
+                    <div style="background: var(--primary-green); color: white; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem; text-align: center;">
+                        <strong>Économie totale possible : jusqu'à 70% du coût des travaux</strong>
+                    </div>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <div class="card-icon">🎯</div>
+                    <h3 class="card-title">Notre accompagnement</h3>
+                    <p class="card-description">Nous vous accompagnons dans toutes vos démarches :</p>
+                    <ul class="card-list">
+                        <li>Simulation personnalisée des aides</li>
+                        <li>Constitution des dossiers</li>
+                        <li>Suivi des demandes</li>
+                        <li>Avance des frais si nécessaire</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary" style="margin-top: 1rem;">Être accompagné</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Questions Fréquentes</h2>
+                <p class="section-subtitle">Tout ce que vous devez savoir sur les aides financières</p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card animate-on-scroll">
+                    <h3 class="card-title">Qui peut bénéficier de MaPrimeRénov' ?</h3>
+                    <p class="card-description">Tous les propriétaires, qu'ils soient occupants ou bailleurs, peuvent bénéficier de MaPrimeRénov' pour un logement de plus de 15 ans.</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <h3 class="card-title">Qu'est-ce qu'un professionnel RGE ?</h3>
+                    <p class="card-description">RGE signifie "Reconnu Garant de l'Environnement". C'est un label qui certifie que l'entreprise respecte des critères de qualité pour les travaux de rénovation énergétique.</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <h3 class="card-title">Comment obtenir l'Éco-PTZ ?</h3>
+                    <p class="card-description">L'Éco-PTZ s'obtient auprès de votre banque. Nous vous aidons à constituer le dossier avec tous les justificatifs nécessaires.</p>
+                </div>
+                
+                <div class="card animate-on-scroll">
+                    <h3 class="card-title">Les aides sont-elles cumulables ?</h3>
+                    <p class="card-description">Oui, la plupart des aides sont cumulables entre elles, ce qui permet de réduire considérablement le coût de vos travaux.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="section" style="background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%); color: white;">
+        <div class="container text-center">
+            <div class="animate-on-scroll">
+                <h2 class="section-title" style="color: white;">Calculez vos aides dès maintenant</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Nos experts vous accompagnent gratuitement dans vos démarches</p>
+                <div class="hero-buttons mt-8">
+                    <a href="contact.html" class="btn" style="background: white; color: #0ea5e9;">
+                        📋 Simulation gratuite
+                    </a>
+                    <a href="tel:0745058029" class="btn btn-secondary">
+                        📞 07 45 05 80 29
+                    </a>
+                </div>
+                <div class="mt-6" style="color: rgba(255,255,255,0.8);">
+                    <p>📧 direction@oranergy.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="images/ora-nergy-logo.png" alt="Ora Nergy" style="height: 40px; margin-bottom: 1rem;">
+                <p>Votre partenaire expert en énergie. Nous vous accompagnons dans tous vos projets énergétiques : du courtage en électricité et gaz aux travaux de rénovation énergétique.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="solutions.html">Nos Solutions</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="aides-subventions.html">Aides Financières</a></li>
+                    <li><a href="devenir-partenaire.html">Devenir Partenaire</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📞 <a href="tel:0745058029" style="color: #10b981;">07 45 05 80 29</a></p>
+                <p>📧 <a href="mailto:direction@oranergy.com" style="color: #10b981;">direction@oranergy.com</a></p>
+                <p>📍 1 rue du Pré Saint Gervais<br>93500 Pantin</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ora Nergy. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    
+    <!-- Script Assistant Virtuel -->
+    <script>
+        // Configuration de l'assistant virtuel
+        const assistantConfig = {
+            currentStep: 0,
+            totalSteps: 8,
+            userData: {},
+            
+            questions: [
+                {
+                    id: 'type-logement',
+                    question: 'Votre projet concerne :',
+                    type: 'options',
+                    options: [
+                        { value: 'maison', label: '🏠 Une maison' },
+                        { value: 'appartement', label: '🏢 Un appartement' }
+                    ]
+                },
+                {
+                    id: 'age-logement',
+                    question: 'La construction de ce logement date de :',
+                    type: 'options',
+                    options: [
+                        { value: 'moins-2ans', label: '📅 Moins de 2 ans' },
+                        { value: '2-15ans', label: '📅 Entre 2 et 15 ans' },
+                        { value: 'plus-15ans', label: '📅 Plus de 15 ans' }
+                    ]
+                },
+                {
+                    id: 'surface',
+                    question: 'Quelle est la surface habitable approximative de votre logement ?',
+                    type: 'input',
+                    placeholder: 'Surface en m² (ex: 100)',
+                    validation: 'number'
+                },
+                {
+                    id: 'chauffage-actuel',
+                    question: 'Quel est votre mode de chauffage principal actuel ?',
+                    type: 'options',
+                    options: [
+                        { value: 'gaz', label: '🔥 Chauffage au gaz' },
+                        { value: 'electrique', label: '⚡ Chauffage électrique' },
+                        { value: 'fioul', label: '🛢️ Chauffage au fioul' },
+                        { value: 'bois', label: '🪵 Chauffage au bois' },
+                        { value: 'pompe-chaleur', label: '🌡️ Pompe à chaleur' }
+                    ]
+                },
+                {
+                    id: 'travaux-souhaites',
+                    question: 'Quels travaux envisagez-vous de réaliser ?',
+                    type: 'options',
+                    multiple: true,
+                    options: [
+                        { value: 'pac-air-eau', label: '🌡️ Pompe à chaleur Air/Eau' },
+                        { value: 'pac-air-air', label: '❄️ Pompe à chaleur Air/Air' },
+                        { value: 'isolation', label: '🏠 Isolation thermique' },
+                        { value: 'fenetres', label: '🪟 Fenêtres PVC' },
+                        { value: 'solaire', label: '☀️ Panneaux solaires' },
+                        { value: 'poele', label: '🔥 Poêle à granulés' },
+                        { value: 'ballon', label: '💧 Ballon thermodynamique' }
+                    ]
+                },
+                {
+                    id: 'statut',
+                    question: 'Vous êtes :',
+                    type: 'options',
+                    options: [
+                        { value: 'proprietaire-occupant', label: '🏠 Propriétaire occupant' },
+                        { value: 'proprietaire-bailleur', label: '🏢 Propriétaire bailleur' },
+                        { value: 'locataire', label: '👤 Locataire' }
+                    ]
+                },
+                {
+                    id: 'revenus',
+                    question: 'Quel est votre revenu fiscal de référence annuel ?',
+                    type: 'options',
+                    options: [
+                        { value: 'tres-modestes', label: '💰 Moins de 20 593€' },
+                        { value: 'modestes', label: '💰 20 593€ à 25 068€' },
+                        { value: 'intermediaires', label: '💰 25 068€ à 38 184€' },
+                        { value: 'superieurs', label: '💰 Plus de 38 184€' }
+                    ]
+                },
+                {
+                    id: 'contact',
+                    question: 'Pour finaliser votre simulation personnalisée :',
+                    type: 'contact'
+                }
+            ]
+        };
+
+        // Gestionnaire de l'assistant virtuel
+        class AssistantVirtuel {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.bindEvents();
+            }
+
+            bindEvents() {
+                // Bouton pour démarrer la simulation
+                document.getElementById('start-simulator').addEventListener('click', () => {
+                    this.startSimulation();
+                });
+
+                // Bouton "Simuler mes aides" dans le hero
+                const heroBtn = document.querySelector('a[href="#simulateur"]');
+                if (heroBtn) {
+                    heroBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        document.getElementById('simulateur').scrollIntoView({ behavior: 'smooth' });
+                        setTimeout(() => this.startSimulation(), 500);
+                    });
+                }
+
+                // Bouton fermer
+                document.getElementById('close-assistant').addEventListener('click', () => {
+                    this.closeAssistant();
+                });
+
+                // Gestion des options
+                document.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('option-btn')) {
+                        this.handleOptionClick(e.target);
+                    }
+                });
+
+                // Gestion de l'input
+                document.getElementById('send-input').addEventListener('click', () => {
+                    this.handleInputSubmit();
+                });
+
+                document.getElementById('user-input').addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.handleInputSubmit();
+                    }
+                });
+            }
+
+            startSimulation() {
+                assistantConfig.currentStep = 0;
+                assistantConfig.userData = {};
+                
+                document.getElementById('assistant-virtuel').style.display = 'block';
+                document.getElementById('start-simulator').style.display = 'none';
+                
+                this.showQuestion(0);
+                this.updateProgress();
+            }
+
+            closeAssistant() {
+                document.getElementById('assistant-virtuel').style.display = 'none';
+                document.getElementById('start-simulator').style.display = 'block';
+            }
+
+            showQuestion(stepIndex) {
+                const question = assistantConfig.questions[stepIndex];
+                const messagesContainer = document.getElementById('assistant-messages');
+                const optionsContainer = document.getElementById('assistant-options');
+                const inputContainer = document.getElementById('assistant-input');
+
+                // Ajouter le message du bot
+                this.addBotMessage(question.question);
+
+                // Afficher les options ou l'input selon le type
+                if (question.type === 'options') {
+                    this.showOptions(question.options, question.id, question.multiple);
+                    inputContainer.style.display = 'none';
+                } else if (question.type === 'input') {
+                    this.showInput(question.placeholder);
+                    optionsContainer.style.display = 'none';
+                } else if (question.type === 'contact') {
+                    this.showContactForm();
+                    optionsContainer.style.display = 'none';
+                    inputContainer.style.display = 'none';
+                }
+            }
+
+            addBotMessage(message) {
+                const messagesContainer = document.getElementById('assistant-messages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message bot-message';
+                messageDiv.innerHTML = `
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <p>${message}</p>
+                    </div>
+                `;
+                messagesContainer.appendChild(messageDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+
+            addUserMessage(message) {
+                const messagesContainer = document.getElementById('assistant-messages');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message user-message';
+                messageDiv.innerHTML = `
+                    <div class="message-avatar">👤</div>
+                    <div class="message-content">
+                        <p>${message}</p>
+                    </div>
+                `;
+                messagesContainer.appendChild(messageDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+
+            showOptions(options, questionId, multiple = false) {
+                const optionsContainer = document.getElementById('assistant-options');
+                optionsContainer.innerHTML = '';
+                optionsContainer.style.display = 'grid';
+
+                options.forEach(option => {
+                    const button = document.createElement('button');
+                    button.className = 'option-btn';
+                    button.textContent = option.label;
+                    button.dataset.value = option.value;
+                    button.dataset.question = questionId;
+                    button.dataset.multiple = multiple;
+                    optionsContainer.appendChild(button);
+                });
+            }
+
+            showInput(placeholder) {
+                const inputContainer = document.getElementById('assistant-input');
+                const userInput = document.getElementById('user-input');
+                
+                userInput.placeholder = placeholder;
+                userInput.value = '';
+                inputContainer.style.display = 'flex';
+                userInput.focus();
+            }
+
+            showContactForm() {
+                const messagesContainer = document.getElementById('assistant-messages');
+                const contactDiv = document.createElement('div');
+                contactDiv.innerHTML = `
+                    <div class="results-container">
+                        <h3 class="results-title">🎉 Estimation de vos aides</h3>
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="result-amount">${this.calculateMaPrimeRenov()}€</div>
+                                <div class="result-label">MaPrimeRénov'</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-amount">${this.calculateCEE()}€</div>
+                                <div class="result-label">Prime CEE</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-amount">${this.calculateTotal()}€</div>
+                                <div class="result-label">Total estimé</div>
+                            </div>
+                        </div>
+                        <p style="text-align: center; margin-bottom: 2rem;">
+                            💡 Cette estimation est indicative. Nos experts vous accompagnent gratuitement pour optimiser vos aides !
+                        </p>
+                        <div style="text-align: center;">
+                            <a href="contact.html" class="btn" style="background: white; color: var(--primary-green); margin-right: 1rem;">
+                                📋 Devis détaillé gratuit
+                            </a>
+                            <a href="tel:0745058029" class="btn" style="background: rgba(255,255,255,0.2); color: white;">
+                                📞 07 45 05 80 29
+                            </a>
+                        </div>
+                    </div>
+                `;
+                messagesContainer.appendChild(contactDiv);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+
+            handleOptionClick(button) {
+                const value = button.dataset.value;
+                const question = button.dataset.question;
+                const isMultiple = button.dataset.multiple === 'true';
+
+                // Ajouter la réponse de l'utilisateur
+                this.addUserMessage(button.textContent);
+
+                // Sauvegarder la réponse
+                if (isMultiple) {
+                    if (!assistantConfig.userData[question]) {
+                        assistantConfig.userData[question] = [];
+                    }
+                    assistantConfig.userData[question].push(value);
+                } else {
+                    assistantConfig.userData[question] = value;
+                }
+
+                // Passer à la question suivante
+                this.nextQuestion();
+            }
+
+            handleInputSubmit() {
+                const userInput = document.getElementById('user-input');
+                const value = userInput.value.trim();
+
+                if (!value) return;
+
+                // Ajouter la réponse de l'utilisateur
+                this.addUserMessage(value);
+
+                // Sauvegarder la réponse
+                const currentQuestion = assistantConfig.questions[assistantConfig.currentStep];
+                assistantConfig.userData[currentQuestion.id] = value;
+
+                // Passer à la question suivante
+                this.nextQuestion();
+            }
+
+            nextQuestion() {
+                assistantConfig.currentStep++;
+                this.updateProgress();
+
+                if (assistantConfig.currentStep < assistantConfig.questions.length) {
+                    setTimeout(() => {
+                        this.showQuestion(assistantConfig.currentStep);
+                    }, 1000);
+                }
+            }
+
+            updateProgress() {
+                const progress = ((assistantConfig.currentStep + 1) / assistantConfig.totalSteps) * 100;
+                document.getElementById('progress-fill').style.width = progress + '%';
+                document.getElementById('progress-text').textContent = 
+                    `Étape ${assistantConfig.currentStep + 1} sur ${assistantConfig.totalSteps}`;
+            }
+
+            calculateMaPrimeRenov() {
+                const revenus = assistantConfig.userData['revenus'];
+                const travaux = assistantConfig.userData['travaux-souhaites'] || [];
+                
+                let montant = 0;
+                
+                if (revenus === 'tres-modestes') {
+                    if (travaux.includes('pac-air-eau')) montant += 5000;
+                    if (travaux.includes('isolation')) montant += 3000;
+                    if (travaux.includes('fenetres')) montant += 1000;
+                } else if (revenus === 'modestes') {
+                    if (travaux.includes('pac-air-eau')) montant += 4000;
+                    if (travaux.includes('isolation')) montant += 2500;
+                    if (travaux.includes('fenetres')) montant += 800;
+                } else if (revenus === 'intermediaires') {
+                    if (travaux.includes('pac-air-eau')) montant += 3000;
+                    if (travaux.includes('isolation')) montant += 2000;
+                    if (travaux.includes('fenetres')) montant += 600;
+                }
+                
+                return Math.min(montant, 20000);
+            }
+
+            calculateCEE() {
+                const travaux = assistantConfig.userData['travaux-souhaites'] || [];
+                const surface = parseInt(assistantConfig.userData['surface']) || 100;
+                
+                let montant = 0;
+                
+                if (travaux.includes('pac-air-eau')) montant += Math.min(surface * 40, 4000);
+                if (travaux.includes('isolation')) montant += Math.min(surface * 20, 3000);
+                if (travaux.includes('fenetres')) montant += Math.min(surface * 15, 2000);
+                
+                return montant;
+            }
+
+            calculateTotal() {
+                return this.calculateMaPrimeRenov() + this.calculateCEE();
+            }
+        }
+
+        // Initialiser l'assistant au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            new AssistantVirtuel();
+        });
+    </script>
+</body>
+</html>
+

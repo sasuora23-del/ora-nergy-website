@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Solutions - Ora Nergy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/ora-nergy-favicon.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html">
+                <img src="images/ora-nergy-logo.png" alt="Ora Nergy Logo" class="logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="accueil">Accueil</a></li>
+                <li><a href="solutions.html" class="solutions">Nos Solutions</a></li>
+                <li><a href="realisations.html" class="realisations">Réalisations</a></li>
+                <li><a href="aides-subventions.html" class="aides">Aides & Subventions</a></li>
+                <li><a href="devenir-partenaire.html" class="services">Devenir Partenaire</a></li>
+                <li><a href="contact.html" class="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+        <div class="hero-content">
+            <div class="hero-badge">🏠 Solutions énergétiques</div>
+            <h1>Nos Solutions Énergétiques</h1>
+            <p>Découvrez nos solutions adaptées à vos besoins : particuliers et professionnels</p>
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn btn-primary">
+                    📋 Devis Gratuit
+                </a>
+                <a href="tel:0745058029" class="btn btn-secondary">
+                    📞 07 45 05 80 29
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Solutions -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Choisissez votre profil</h2>
+                <p class="section-subtitle">Des solutions adaptées à vos besoins spécifiques</p>
+            </div>
+
+            <div class="tabs-container">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="particuliers">
+                        🏠 Particuliers
+                    </button>
+                    <button class="tab-btn" data-tab="professionnels">
+                        🏢 Professionnels
+                    </button>
+                </div>
+
+                <!-- Contenu Particuliers -->
+                <div class="tab-content active" id="particuliers">
+                    <div class="section-header animate-on-scroll">
+                        <h3 class="section-title">Solutions pour Particuliers</h3>
+                        <p class="section-subtitle">Des solutions de rénovation énergétique pour réduire vos factures</p>
+                    </div>
+
+                    <div class="cards-grid">
+                        <!-- Pompe à chaleur Air/Eau -->
+                        <div class="card animate-on-scroll">
+                            <div class="price-badge">Jusqu'à 60% sur la facture chauffage</div>
+                            <img src="images/pac-air-eau.jpg" alt="Pompe à chaleur Air/Eau" style="width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                            <h3 class="card-title">Pompe à chaleur Air/Eau</h3>
+                            <div class="price-amount">Jusqu'à 1 000€/an d'économies</div>
+                            <p class="card-description">Solution de chauffage et eau chaude sanitaire haute performance pour votre confort toute l'année.</p>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Caractéristiques :</h4>
+                                <ul class="card-list">
+                                    <li>Chauffage central haute performance</li>
+                                    <li>Production d'eau chaude sanitaire</li>
+                                    <li>Énergie renouvelable</li>
+                                    <li>Pilotage intelligent</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Avantages :</h4>
+                                <ul class="card-list">
+                                    <li>Économies d'énergie importantes</li>
+                                    <li>Confort thermique optimal</li>
+                                    <li>Éligible aux aides financières</li>
+                                    <li>Installation par nos experts</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="contact.html" class="btn btn-primary" style="flex: 1;">📋 Devis Gratuit</a>
+                                <a href="aides-subventions.html" class="btn" style="background: var(--gray-100); color: var(--gray-700); flex: 1;">💰 Voir les aides</a>
+                            </div>
+                        </div>
+
+                        <!-- Pompe à chaleur Air/Air -->
+                        <div class="card animate-on-scroll">
+                            <div class="price-badge">Jusqu'à 50% sur la facture chauffage</div>
+                            <img src="images/pac-air-air.png" alt="Pompe à chaleur Air/Air" style="width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                            <h3 class="card-title">Pompe à chaleur Air/Air</h3>
+                            <div class="price-amount">Jusqu'à 800€/an d'économies</div>
+                            <p class="card-description">Climatisation réversible pour chauffer et rafraîchir votre logement avec efficacité.</p>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Caractéristiques :</h4>
+                                <ul class="card-list">
+                                    <li>Climatisation réversible</li>
+                                    <li>Unités intérieures murales</li>
+                                    <li>Fonctionnement silencieux</li>
+                                    <li>Télécommande intelligente</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Avantages :</h4>
+                                <ul class="card-list">
+                                    <li>Chauffage et climatisation</li>
+                                    <li>Installation pour tout type de maison</li>
+                                    <li>Consommation maîtrisée</li>
+                                    <li>Design moderne et discret</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="contact.html" class="btn btn-primary" style="flex: 1;">📋 Devis Gratuit</a>
+                                <a href="aides-subventions.html" class="btn" style="background: var(--gray-100); color: var(--gray-700); flex: 1;">💰 Voir les aides</a>
+                            </div>
+                        </div>
+
+                        <!-- Fenêtres PVC et Aluminium -->
+                        <div class="card animate-on-scroll">
+                            <div class="price-badge">Jusqu'à 15% sur la facture énergétique</div>
+                            <img src="images/fenetres-pvc.jpg" alt="Fenêtres PVC et Aluminium" style="width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                            <h3 class="card-title">Fenêtres PVC et Aluminium</h3>
+                            <div class="price-amount">Jusqu'à 400€/an d'économies</div>
+                            <p class="card-description">Remplacement de fenêtres simple vitrage par du double ou triple vitrage PVC ou aluminium haute performance.</p>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Caractéristiques :</h4>
+                                <ul class="card-list">
+                                    <li>Remplacement simple vitrage par double/triple vitrage</li>
+                                    <li>Profilés PVC ou aluminium haute qualité</li>
+                                    <li>Joints d'étanchéité performants</li>
+                                    <li>Poignées et ferrures de qualité</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Avantages :</h4>
+                                <ul class="card-list">
+                                    <li>Isolation thermique renforcée</li>
+                                    <li>Installation pour tout type de maison</li>
+                                    <li>Éligible aux aides financières</li>
+                                    <li>Réduction des nuisances sonores</li>
+                                    <li>Entretien facile</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="contact.html" class="btn btn-primary" style="flex: 1;">📋 Devis Gratuit</a>
+                                <a href="aides-subventions.html" class="btn" style="background: var(--gray-100); color: var(--gray-700); flex: 1;">💰 Voir les aides</a>
+                            </div>
+                        </div>
+
+                        <!-- Poêle à granulés -->
+                        <div class="card animate-on-scroll">
+                            <div class="price-badge">Jusqu'à 50% sur la facture chauffage</div>
+                            <img src="images/poele-granules.jpg" alt="Poêle à granulés" style="width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                            <h3 class="card-title">Poêle à granulés</h3>
+                            <div class="price-amount">Jusqu'à 800€/an d'économies</div>
+                            <p class="card-description">Poêles à granulés pour un chauffage écologique et économique avec une flamme authentique.</p>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Caractéristiques :</h4>
+                                <ul class="card-list">
+                                    <li>Poêles à granulés haute performance</li>
+                                    <li>Alimentation automatique</li>
+                                    <li>Programmation avancée</li>
+                                    <li>Réservoir intégré</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Avantages :</h4>
+                                <ul class="card-list">
+                                    <li>Combustible renouvelable</li>
+                                    <li>Installation pour tout type de maison</li>
+                                    <li>Autonomie importante</li>
+                                    <li>Éligible aux aides financières</li>
+                                    <li>Rendement élevé</li>
+                                    <li>Flamme authentique</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="contact.html" class="btn btn-primary" style="flex: 1;">📋 Devis Gratuit</a>
+                                <a href="aides-subventions.html" class="btn" style="background: var(--gray-100); color: var(--gray-700); flex: 1;">💰 Voir les aides</a>
+                            </div>
+                        </div>
+
+                        <!-- Ballon thermodynamique -->
+                        <div class="card animate-on-scroll">
+                            <div class="price-badge">Jusqu'à 70% sur la facture eau chaude</div>
+                            <img src="images/ballon-thermodynamique.jpg" alt="Ballon thermodynamique" style="width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                            <h3 class="card-title">Ballon thermodynamique</h3>
+                            <div class="price-amount">Jusqu'à 600€/an d'économies</div>
+                            <p class="card-description">Chauffe-eau thermodynamique pour une production d'eau chaude sanitaire économique et écologique.</p>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Caractéristiques :</h4>
+                                <ul class="card-list">
+                                    <li>Technologie thermodynamique</li>
+                                    <li>Capacité 200 à 300L</li>
+                                    <li>Fonctionnement silencieux</li>
+                                    <li>Installation intérieure</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Avantages :</h4>
+                                <ul class="card-list">
+                                    <li>Économies d'énergie importantes</li>
+                                    <li>Installation pour tout type de maison</li>
+                                    <li>Eau chaude en continu</li>
+                                    <li>Respectueux de l'environnement</li>
+                                    <li>Aides financières disponibles</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="contact.html" class="btn btn-primary" style="flex: 1;">📋 Devis Gratuit</a>
+                                <a href="aides-subventions.html" class="btn" style="background: var(--gray-100); color: var(--gray-700); flex: 1;">💰 Voir les aides</a>
+                            </div>
+                        </div>
+
+                        <!-- Panneaux photovoltaïques -->
+                        <div class="card animate-on-scroll">
+                            <div class="price-badge">Jusqu'à 80% sur la facture électricité</div>
+                            <img src="images/panneaux-photovoltaiques.jpg" alt="Panneaux photovoltaïques" style="width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                            <h3 class="card-title">Panneaux photovoltaïques</h3>
+                            <div class="price-amount">Jusqu'à 1 200€/an d'économies</div>
+                            <p class="card-description">Installation de panneaux solaires pour produire votre propre électricité verte et réduire vos factures.</p>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Caractéristiques :</h4>
+                                <ul class="card-list">
+                                    <li>Panneaux haute performance</li>
+                                    <li>Onduleurs de qualité</li>
+                                    <li>Monitoring en temps réel</li>
+                                    <li>Garantie 20 ans</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Avantages :</h4>
+                                <ul class="card-list">
+                                    <li>Électricité gratuite et verte</li>
+                                    <li>Revente du surplus</li>
+                                    <li>Installation pour tout type de maison</li>
+                                    <li>Aides financières importantes</li>
+                                    <li>Valorisation du patrimoine</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="contact.html" class="btn btn-primary" style="flex: 1;">📋 Devis Gratuit</a>
+                                <a href="aides-subventions.html" class="btn" style="background: var(--gray-100); color: var(--gray-700); flex: 1;">💰 Voir les aides</a>
+                            </div>
+                        </div>
+
+                        <!-- Isolation Thermique Extérieure -->
+                        <div class="card animate-on-scroll">
+                            <div class="price-badge">Jusqu'à 25% sur la facture énergétique</div>
+                            <img src="images/isolation-thermique-exterieure.jpg" alt="Isolation Thermique Extérieure" style="width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                            <h3 class="card-title">Isolation Thermique Extérieure</h3>
+                            <div class="price-amount">Jusqu'à 600€/an d'économies</div>
+                            <p class="card-description">Isolation par l'extérieur pour améliorer les performances énergétiques de votre logement.</p>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Caractéristiques :</h4>
+                                <ul class="card-list">
+                                    <li>Isolation par l'extérieur</li>
+                                    <li>Matériaux haute performance</li>
+                                    <li>Finitions personnalisables</li>
+                                    <li>Traitement des ponts thermiques</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Avantages :</h4>
+                                <ul class="card-list">
+                                    <li>Amélioration thermique importante</li>
+                                    <li>Installation pour tout type de maison</li>
+                                    <li>Rénovation de façade incluse</li>
+                                    <li>Éligible aux aides financières</li>
+                                    <li>Valorisation du patrimoine</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="contact.html" class="btn btn-primary" style="flex: 1;">📋 Devis Gratuit</a>
+                                <a href="aides-subventions.html" class="btn" style="background: var(--gray-100); color: var(--gray-700); flex: 1;">💰 Voir les aides</a>
+                            </div>
+                        </div>
+
+                        <!-- Système solaire combiné (SSC) -->
+                        <div class="card animate-on-scroll">
+                            <div class="price-badge">Chauffage + eau chaude solaire</div>
+                            <img src="images/systeme-solaire-combine.jpg" alt="Système solaire combiné" style="width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                            <h3 class="card-title">Système solaire combiné (SSC)</h3>
+                            <div class="price-amount">Jusqu'à 1 000€/an d'économies</div>
+                            <p class="card-description">Le système solaire combiné (SSC) permet de produire à la fois le chauffage et l'eau chaude sanitaire grâce à l'énergie solaire. C'est une solution performante qui réduit fortement la consommation d'énergie fossile.</p>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Caractéristiques :</h4>
+                                <ul class="card-list">
+                                    <li>Capteurs solaires thermiques haute performance</li>
+                                    <li>Ballon de stockage combiné</li>
+                                    <li>Système de régulation intelligent</li>
+                                    <li>Appoint énergétique intégré</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Avantages :</h4>
+                                <ul class="card-list">
+                                    <li>Chauffage + eau chaude sanitaire avec une seule installation</li>
+                                    <li>Énergie gratuite et renouvelable</li>
+                                    <li>Réduction importante des factures</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="contact.html" class="btn btn-primary" style="flex: 1;">📋 Devis Gratuit</a>
+                                <a href="aides-subventions.html" class="btn" style="background: var(--gray-100); color: var(--gray-700); flex: 1;">💰 Voir les aides</a>
+                            </div>
+                        </div>
+
+                        <!-- Ballon solaire -->
+                        <div class="card animate-on-scroll">
+                            <div class="price-badge">Stockage énergie solaire</div>
+                            <img src="images/ballon-solaire.jpg" alt="Ballon solaire" style="width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                            <h3 class="card-title">Ballon solaire</h3>
+                            <div class="price-amount">Jusqu'à 700€/an d'économies</div>
+                            <p class="card-description">Le ballon solaire stocke la chaleur produite par les capteurs solaires thermiques pour l'utiliser dans l'eau chaude sanitaire et le chauffage selon configuration.</p>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Caractéristiques :</h4>
+                                <ul class="card-list">
+                                    <li>Ballon de stockage isolé haute performance</li>
+                                    <li>Échangeur thermique intégré</li>
+                                    <li>Système de circulation forcée</li>
+                                    <li>Régulation automatique de température</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: var(--primary-green); margin-bottom: 0.5rem;">Avantages :</h4>
+                                <ul class="card-list">
+                                    <li>Valorise l'énergie solaire thermique</li>
+                                    <li>Production d'eau chaude écologique</li>
+                                    <li>Économies d'énergie durables</li>
+                                </ul>
+                            </div>
+                            
+                            <div style="display: flex; gap: 0.5rem;">
+                                <a href="contact.html" class="btn btn-primary" style="flex: 1;">📋 Devis Gratuit</a>
+                                <a href="aides-subventions.html" class="btn" style="background: var(--gray-100); color: var(--gray-700); flex: 1;">💰 Voir les aides</a>
+                            </div>
+                        </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenu Professionnels - Redirige vers courtage-energie.html -->
+                <div class="tab-content" id="professionnels" style="display: none;">
+                    <!-- Contenu géré par redirection JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="images/ora-nergy-logo.png" alt="Ora Nergy Logo" class="footer-logo">
+                <p>Votre partenaire de confiance pour la rénovation énergétique et le courtage en énergie.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Nos Services</h3>
+                <ul>
+                    <li><a href="solutions.html">Pompes à chaleur</a></li>
+                    <li><a href="solutions.html">Isolation thermique</a></li>
+                    <li><a href="solutions.html">Fenêtres PVC</a></li>
+                    <li><a href="courtage-energie.html">Courtage énergie</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Informations</h3>
+                <ul>
+                    <li><a href="aides-subventions.html">Aides & Subventions</a></li>
+                    <li><a href="realisations.html">Nos Réalisations</a></li>
+                    <li><a href="devenir-partenaire.html">Devenir Partenaire</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📞 <a href="tel:0745058029" style="color: #10b981;">07 45 05 80 29</a></p>
+                <p>📧 <a href="mailto:direction@oranergy.com" style="color: #10b981;">direction@oranergy.com</a></p>
+                <p>📍 1 rue du Pré Saint Gervais<br>93500 Pantin</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ora Nergy. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="images/ora-nergy-logo.png" alt="Ora Nergy" style="height: 40px; margin-bottom: 1rem;">
+                <p>Votre partenaire expert en énergie. Nous vous accompagnons dans tous vos projets énergétiques.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="solutions.html">Nos Solutions</a></li>
+                    <li><a href="realisations.html">Réalisations</a></li>
+                    <li><a href="aides-subventions.html">Aides Financières</a></li>
+                    <li><a href="devenir-partenaire.html">Devenir Partenaire</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📞 <a href="tel:0745058029" style="color: #10b981;">07 45 05 80 29</a></p>
+                <p>📧 <a href="mailto:direction@oranergy.com" style="color: #10b981;">direction@oranergy.com</a></p>
+                <p>📍 1 rue du Pré Saint Gervais<br>93500 Pantin</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ora Nergy. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+

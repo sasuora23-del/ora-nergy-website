@@ -1,0 +1,15 @@
+backend:
+  name: test-repo
+
+media_folder: "images/uploads"
+
+collections:
+  - name: "blog"
+    label: "Articles de blog"
+    folder: "_posts/blog"
+    create: true
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date de publication", name: "date", widget: "datetime" }
+      - { label: "Image principale", name: "thumbnail", widget: "image", required: false }
+      - { label: "Contenu de l'article", name: "body", widget: "markdown" }
