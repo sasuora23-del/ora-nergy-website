@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Gallery</title>
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+        }
+        .gallery-item {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test de la galerie</h1>
+    
+    <div id="gallery" class="gallery-grid">
+        <!-- Images will be loaded here -->
+    </div>
+
+    <script>
+        // Test simple
+        const imagesData = [
+            { src: 'images/nouvelles_photos_v2/PAC_AirEau/pac_aireau_01.png', category: 'pac-air-eau', title: 'Test PAC' },
+            { src: 'images/nouvelles_photos_v2/Poele_Granules/poele_05.png', category: 'poele-granules', title: 'Test Poêle' }
+        ];
+
+        function displayImages() {
+            const gallery = document.getElementById('gallery');
+            console.log('Gallery element:', gallery);
+            
+            if (!gallery) {
+                console.error('Gallery element not found!');
+                return;
+            }
+
+            gallery.innerHTML = '<p>Chargement des images...</p>';
+
+            imagesData.forEach((image, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.classList.add('gallery-item');
+
+                const img = document.createElement('img');
+                img.src = image.src;
+                img.alt = image.title;
+                img.onload = () => console.log('Image chargée:', image.src);
+                img.onerror = () => console.error('Erreur chargement:', image.src);
+
+                galleryItem.appendChild(img);
+                gallery.appendChild(galleryItem);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, starting test...');
+            displayImages();
+        });
+    </script>
+</body>
+</html>
