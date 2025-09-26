@@ -3,23 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Réalisations - Ora Nergy</title>
-    <meta name="description" content="Découvrez nos projets de rénovation énergétique réalisés avec succès chez nos clients particuliers et professionnels.">
+    <title>Blog - Ora Nergy</title>
+    <meta name="description" content="Articles et actualités sur la rénovation énergétique et le courtage en énergie.">
     <link rel="icon" href="https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888354/ora-nergy-favicon_aok5oa.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/lightbox.css">
 </head>
 <body>
-    <!-- Lightbox Overlay -->
-    <div id="lightbox" class="lightbox-overlay">
-        <div class="lightbox-content">
-            <span class="lightbox-close">&times;</span>
-            <img src="" alt="" class="lightbox-image">
-            <div class="lightbox-caption"></div>
-            <button class="lightbox-nav prev">&lt;</button>
-            <button class="lightbox-nav next">&gt;</button>
-        </div>
-    </div>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="navbar-content">
@@ -29,65 +18,34 @@
             <ul class="nav-links">
                 <li><a href="index.html" class="accueil">Accueil</a></li>
                 <li><a href="solutions.html" class="solutions">Nos Solutions</a></li>
-                
                 <li><a href="realisations.html" class="realisations">Réalisations</a></li>
                 <li><a href="aides-subventions.html" class="aides">Aides & Subventions</a></li>
-                
                 <li><a href="blog.html" class="blog">Blog</a></li>
                 <li><a href="devenir-partenaire.html" class="services">Devenir Partenaire</a></li>
-                
                 <li><a href="contact.html" class="contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');">
+    <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(\'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80\');">
         <div class="hero-content">
-            <div class="hero-badge">🏗️ Nos projets réalisés</div>
-            <h1>Nos Réalisations</h1>
-            <p>Découvrez nos projets de rénovation énergétique réalisés avec succès chez nos clients particuliers et professionnels</p>
+            <div class="hero-badge">📰 Actualités & Conseils</div>
+            <h1>Notre Blog</h1>
+            <p>Retrouvez ici nos derniers articles, conseils et actualités sur la rénovation énergétique et le courtage en énergie.</p>
         </div>
     </section>
 
-    <!-- Section Réalisations -->
+    <!-- Blog Posts Section -->
     <section class="section section-white">
         <div class="container">
-            <div id="filter-buttons" class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">Tous</button>
-                <button class="filter-btn" data-filter="pac-air-eau">Pompe à chaleur Air/Eau</button>
-                <button class="filter-btn" data-filter="pac-air-air">Pompe à chaleur Air/Air</button>
-                <button class="filter-btn" data-filter="ssc">Système solaire combiné</button>
-                <button class="filter-btn" data-filter="poele-granules">Poêle à granulés</button>
-                <button class="filter-btn" data-filter="isolation-exterieure">Isolation extérieure</button>
-                <button class="filter-btn" data-filter="isolation-combles">Isolation des combles</button>
-                <button class="filter-btn" data-filter="fenetres-pvc">Fenêtres PVC</button>
+            <div class="section-header animate-on-scroll">
+                <h2 class="section-title">Derniers Articles</h2>
+                <p class="section-subtitle">Explorez nos articles pour tout savoir sur l'énergie</p>
             </div>
-
-            <div id="gallery" class="gallery-grid">
-                <!-- Images will be dynamically loaded here -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Contact -->
-    <section class="section section-primary">
-        <div class="container text-center">
-            <div class="section-header">
-                <h2 class="section-title text-white">Prêt à démarrer votre projet ?</h2>
-                <p class="section-subtitle text-white">Contactez-nous pour un devis gratuit et personnalisé</p>
-            </div>
-            <div class="hero-buttons">
-                <a href="contact.html" class="btn btn-white">
-                    Demander un devis
-                </a>
-                <a href="tel:0745058029" class="btn btn-secondary">
-                    07 45 05 80 29
-                </a>
-            </div>
-            <div class="mt-6">
-                <p>Contactez-nous pour un devis gratuit et personnalisé</p>
-                <p>📧 direction@oranergy.com</p>
+            <div class="blog-grid" id="blog-posts-container">
+                <!-- Blog posts will be dynamically loaded here -->
+                <p>Aucun article pour le moment. Revenez bientôt !</p>
             </div>
         </div>
     </section>
@@ -111,6 +69,7 @@
                     <li><a href="solutions.html">Nos Solutions</a></li>
                     <li><a href="realisations.html">Réalisations</a></li>
                     <li><a href="aides-subventions.html">Aides Financières</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                     <li><a href="devenir-partenaire.html">Devenir Partenaire</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -133,10 +92,7 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="js/gallery.js"></script>
 </body>
 </html>
-
-
 
 
