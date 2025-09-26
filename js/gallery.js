@@ -1,51 +1,51 @@
 // Images data
 const imagesData = [
     // Pompe à chaleur Air/Eau
-    { src: 'images/nouvelles_photos_v2/PAC_AirEau/pac_aireau_01.png', category: 'pac-air-eau', title: 'Pompe à chaleur Air/Eau' },
-    { src: 'images/nouvelles_photos_v2/PAC_AirEau/pac_aireau_02.png', category: 'pac-air-eau', title: 'Pompe à chaleur Air/Eau' },
-    { src: 'images/nouvelles_photos_v2/PAC_AirEau/pac_aireau_03.png', category: 'pac-air-eau', title: 'Pompe à chaleur Air/Eau' },
-    { src: 'images/nouvelles_photos_v2/PAC_AirEau/pac_aireau_04.png', category: 'pac-air-eau', title: 'Pompe à chaleur Air/Eau' },
-    { src: 'images/nouvelles_photos_v2/PAC_AirEau/pac_aireau_05.png', category: 'pac-air-eau', title: 'Pompe à chaleur Air/Eau' },
-    { src: 'images/nouvelles_photos_v2/PAC_AirEau/pac_aireau_06.png', category: 'pac-air-eau', title: 'Pompe à chaleur Air/Eau' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888333/pac_aireau_01_l0nesb.png', category: 'pac-air-eau', title: 'Pompe à chaleur Air/Eau' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888336/pac_aireau_02_ej4asw.png', category: 'pac-air-eau', title: 'Pompe à chaleur Air/Eau' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888360/photovoltaique-1_llbrhx.png', category: 'pac-air-eau', title: 'Pompe à chaleur Air/Eau' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888368/realisation-06_jy9g51.png', category: 'pac-air-eau', title: 'Pompe à chaleur Air/Eau' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888346/pac_aireau_05_nwpngq.png', category: 'pac-air-eau', title: 'Pompe à chaleur Air/Eau' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888372/realisation-10_zhmilf.png', category: 'pac-air-eau', title: 'Pompe à chaleur Air/Eau' },
 
     // Pompe à chaleur Air/Air
 
 
 
-    { src: 'images/nouvelles_photos_v2/PAC_AirAir/pac_airair_04.png', category: 'pac-air-air', title: 'Pompe à chaleur Air/Air' },
-    { src: 'images/nouvelles_photos_v2/PAC_AirAir/pac_airair_05.png', category: 'pac-air-air', title: 'Pompe à chaleur Air/Air' },
-    { src: 'images/nouvelles_photos_v2/PAC_AirAir/pac_airair_06.png', category: 'pac-air-air', title: 'Pompe à chaleur Air/Air' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888332/pac_airair_04_iy9wz6.png', category: 'pac-air-air', title: 'Pompe à chaleur Air/Air' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888371/solaire-thermique-1_k9nj5n.png', category: 'pac-air-air', title: 'Pompe à chaleur Air/Air' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888337/pac_airair_06_c8ozzt.png', category: 'pac-air-air', title: 'Pompe à chaleur Air/Air' },
 
     // Système solaire combiné (SSC)
-    { src: 'images/nouvelles_photos_v2/SSC/Captured_ecran2025-09-22a23.38.43.png', category: 'ssc', title: 'Système Solaire Combiné' },
-    { src: 'images/nouvelles_photos_v2/SSC/Captured_ecran2025-09-22a23.38.56.png', category: 'ssc', title: 'Système Solaire Combiné' },
-    { src: 'images/nouvelles_photos_v2/SSC/Captured_ecran2025-09-22a23.39.30.png', category: 'ssc', title: 'Système Solaire Combiné' },
-    { src: 'images/nouvelles_photos_v2/SSC/Captured_ecran2025-09-22a23.39.39.png', category: 'ssc', title: 'Système Solaire Combiné' },
-    { src: 'images/nouvelles_photos_v2/SSC/Captured_ecran2025-09-22a23.39.51.png', category: 'ssc', title: 'Système Solaire Combiné' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888353/captured_ecran2025-09-22a23.38.43_z2ckvj.png', category: 'ssc', title: 'Système Solaire Combiné' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888351/captured_ecran2025-09-22a23.38.56_svvcgn.png', category: 'ssc', title: 'Système Solaire Combiné' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888353/captured_ecran2025-09-22a23.39.51_mogejo.png', category: 'ssc', title: 'Système Solaire Combiné' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888354/captured_ecran2025-09-22a23.39.39_tnabwn.png', category: 'ssc', title: 'Système Solaire Combiné' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888353/captured_ecran2025-09-22a23.39.51_mogejo.png', category: 'ssc', title: 'Système Solaire Combiné' },
 
     // Poêle à granulés
-    { src: 'images/nouvelles_photos_v2/Poele_Granules/poele_05.png', category: 'poele-granules', title: 'Poêle à granulés' },
-    { src: 'images/nouvelles_photos_v2/Poele_Granules/poele_06.png', category: 'poele-granules', title: 'Poêle à granulés' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888344/poele_05_zxjbvm.png', category: 'poele-granules', title: 'Poêle à granulés' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888356/pac-air-eau-1_kq1kzn.jpg', category: 'poele-granules', title: 'Poêle à granulés' },
 
     // Isolation extérieure
-    { src: 'images/nouvelles_photos_v2/ITE/ite_01.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
-    { src: 'images/nouvelles_photos_v2/ITE/ite_02.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
-    { src: 'images/nouvelles_photos_v2/ITE/ite_03.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
-    { src: 'images/nouvelles_photos_v2/ITE/ite_04.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
-    { src: 'images/nouvelles_photos_v2/ITE/ite_05.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
-    { src: 'images/nouvelles_photos_v2/ITE/ite_06.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
-    { src: 'images/nouvelles_photos_v2/ITE/ite_07.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
-    { src: 'images/nouvelles_photos_v2/ITE/ite_08.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888323/ite_01_gfmq7h.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888323/ite_02_fjcp6d.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888328/ite_03_ig7srn.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888370/realisation-09_sr9nsu.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888370/realisation-11_pcwoi9.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888325/ite_06_ouedxa.jpg', category: 'isolation-exterieure', title: 'Isolation extérieure' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888326/ite_07_uft9aw.webp', category: 'isolation-exterieure', title: 'Isolation extérieure' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888368/realisation-08_i8rahp.png', category: 'isolation-exterieure', title: 'Isolation extérieure' },
 
     // Isolation des combles
-    { src: 'images/nouvelles_photos_v2/Isolation_Combles/combles_03.png', category: 'isolation-combles', title: 'Isolation des combles' },
-    { src: 'images/nouvelles_photos_v2/Isolation_Combles/combles_04.png', category: 'isolation-combles', title: 'Isolation des combles' },
-    { src: 'images/nouvelles_photos_v2/Isolation_Combles/combles_05.png', category: 'isolation-combles', title: 'Isolation des combles' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888312/combles_03_mplgst.png', category: 'isolation-combles', title: 'Isolation des combles' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888326/combles_04_re95hx.png', category: 'isolation-combles', title: 'Isolation des combles' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888318/combles_05_dlpimb.webp', category: 'isolation-combles', title: 'Isolation des combles' },
 
     // Fenêtres PVC
-    { src: 'images/nouvelles_photos_v2/Fenetres_PVC/fenetres_pvc_01.png', category: 'fenetres-pvc', title: 'Fenêtres PVC' },
-    { src: 'images/nouvelles_photos_v2/Fenetres_PVC/fenetres_pvc_02.png', category: 'fenetres-pvc', title: 'Fenêtres PVC' },
-    { src: 'images/nouvelles_photos_v2/Fenetres_PVC/fenetres_pvc_03.png', category: 'fenetres-pvc', title: 'Fenêtres PVC' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888310/fenetres_pvc_01_sjxnul.png', category: 'fenetres-pvc', title: 'Fenêtres PVC' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888312/fenetres_pvc_02_zi7zm2.png', category: 'fenetres-pvc', title: 'Fenêtres PVC' },
+    { src: 'https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888309/fenetres_pvc_03_dbn263.png', category: 'fenetres-pvc', title: 'Fenêtres PVC' },
 ];
 
 // Variables globales
