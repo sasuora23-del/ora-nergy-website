@@ -1,15 +1,22 @@
 backend:
-  name: test-repo
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
 
 media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "blog"
-    label: "Articles de blog"
-    folder: "_posts/blog"
+    label: "Blog"
+    folder: "blog"
     create: true
+    slug: "{{slug}}"
     fields:
-      - { label: "Titre", name: "title", widget: "string" }
-      - { label: "Date de publication", name: "date", widget: "datetime" }
-      - { label: "Image principale", name: "thumbnail", widget: "image", required: false }
-      - { label: "Contenu de l'article", name: "body", widget: "markdown" }
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Auteur", name: "author", widget: "string", default: "Ora Nergy"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Corps", name: "body", widget: "markdown"}
+
+
