@@ -1,5 +1,5 @@
 [build]
-command = "python3.11 generate_blog.py"
+command = "pip install markdown && python3.11 generate_blog.py"
 publish = "."
 [build.environment]
 PYTHON_VERSION = "3.11"
