@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Ora Nergy</title>
-    <meta name="description" content="Articles et actualités sur la rénovation énergétique et le courtage en énergie.">
-    <link rel="icon" href="https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888354/ora-nergy-favicon_aok5oa.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dz3jyphfi/image/upload/v1758888354/ora-nergy-favicon_aok5oa.png">
 </head>
 <body>
     <!-- Navigation -->
@@ -28,11 +27,11 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(\'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80\');">
+    <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(\'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80\');">
         <div class="hero-content">
-            <div class="hero-badge">📰 Actualités & Conseils</div>
-            <h1>Notre Blog</h1>
-            <p>Retrouvez ici nos derniers articles, conseils et actualités sur la rénovation énergétique et le courtage en énergie.</p>
+            <div class="hero-badge">📝 Notre Blog</div>
+            <h1>Actualités et Conseils</h1>
+            <p>Restez informé sur la rénovation énergétique et les aides disponibles</p>
         </div>
     </section>
 
@@ -40,12 +39,34 @@
     <section class="section section-white">
         <div class="container">
             <div class="section-header animate-on-scroll">
-                <h2 class="section-title">Derniers Articles</h2>
-                <p class="section-subtitle">Explorez nos articles pour tout savoir sur l'énergie</p>
+                <h2 class="section-title">Nos Derniers Articles</h2>
+                <p class="section-subtitle">Explorez nos conseils et actualités</p>
             </div>
-            <div class="blog-grid" id="blog-posts-container">
-                <!-- Blog posts will be dynamically loaded here -->
-                <p>Aucun article pour le moment. Revenez bientôt !</p>
+            <div id="blog-posts" class="cards-grid">
+                <!-- Blog posts will be loaded here by JavaScript -->
+                <p>Chargement des articles...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="section section-primary">
+        <div class="container text-center">
+            <div class="section-header">
+                <h2 class="section-title text-white">Prêt à démarrer votre projet ?</h2>
+                <p class="section-subtitle text-white">Contactez-nous pour un devis gratuit et personnalisé</p>
+            </div>
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn btn-white">
+                    Demander un devis
+                </a>
+                <a href="tel:0745058029" class="btn btn-secondary">
+                    07 45 05 80 29
+                </a>
+            </div>
+            <div class="mt-6">
+                <p>Contactez-nous pour un devis gratuit et personnalisé</p>
+                <p>📧 direction@oranergy.com</p>
             </div>
         </div>
     </section>
@@ -92,7 +113,31 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener(\'DOMContentLoaded\', function() {
+            fetch(\'blog/index.json\')
+                .then(response => response.json())
+                .then(posts => {
+                    const blogPostsContainer = document.getElementById(\'blog-posts\');
+                    blogPostsContainer.innerHTML = \'\'; // Clear loading message
+                    posts.forEach(post => {
+                        const postElement = document.createElement(\'div\');
+                        postElement.classList.add(\'card\');
+                        postElement.innerHTML = `
+                            <img src="${post.image}" alt="${post.title}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 0.5rem; margin-bottom: 1.5rem;">
+                            <h3 class="card-title">${post.title}</h3>
+                            <p class="card-description">${post.description}</p>
+                            <a href="blog/${post.slug}.html" class="btn btn-primary">Lire la suite</a>
+                        `;
+                        blogPostsContainer.appendChild(postElement);
+                    });
+                })
+                .catch(error => {
+                    console.error(\'Error fetching blog posts:\', error);
+                    document.getElementById(\'blog-posts\').innerHTML = \'<p>Impossible de charger les articles pour le moment. Veuillez réessayer plus tard.</p>\';
+                });
+        });
+    </script>
 </body>
 </html>
-
 
