@@ -181,4 +181,3 @@ def generate_blog():
 
 if __name__ == '__main__':
     generate_blog()
-
