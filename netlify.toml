@@ -4,4 +4,3 @@ publish = "."
 [build.environment]
 PYTHON_VERSION = "3.11"
 NPM_FLAGS = "--legacy-peer-deps --no-optional"
-```
