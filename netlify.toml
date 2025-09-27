@@ -1,5 +1,5 @@
 [build]
-command = "chmod +x generate_blog.py && ./generate_blog.py"
+command = "python3.11 generate_blog.py"
 publish = "."
 [build.environment]
 PYTHON_VERSION = "3.11"
