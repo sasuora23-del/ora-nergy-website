@@ -1,4 +1,3 @@
-
 [build]
 command = "chmod +x generate_blog.py && ./generate_blog.py"
 publish = "."
