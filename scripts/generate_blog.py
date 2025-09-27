@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+
+
 import os
 import json
 import markdown
@@ -78,7 +82,7 @@ def generate_blog():
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(\\'{post_data['image']}\\' );">
+    <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(\\'{post_data['image']}\\');">
         <div class="hero-content">
             <div class="hero-badge">📝 Blog</div>
             <h1>{post_data['title']}</h1>
@@ -160,7 +164,8 @@ def generate_blog():
     <script src="../js/main.js"></script>
 </body>
 </html>
-'''))
+'''
+))
 
     # Sort posts by date (newest first)
     posts.sort(key=lambda x: x.get('date', '0000-00-00'), reverse=True)
@@ -184,5 +189,7 @@ def generate_blog():
 
 if __name__ == '__main__':
     generate_blog()
+
+
 
 

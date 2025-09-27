@@ -1,5 +1,5 @@
 [build]
-  command = "ls -R && python3 scripts/generate_blog.py"
+  command = "ls -R && ./scripts/generate_blog.py"
   publish = "."
 
 [build.environment]
