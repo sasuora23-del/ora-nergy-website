@@ -1,52 +1,30 @@
-        # Extract front matter (metadata) and body
-        # Assuming front matter is at the beginning, delimited by '---'
-        parts = content.split('---', 2)
-        if len(parts) < 3:
-            print(f"Warning: Skipping {filename} due to missing front matter.")
-            continue
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-        front_matter_raw = parts[1]
-        body_markdown = parts[2]
+import os, json, glob
+from pathlib import Path
+from datetime import datetime
+import markdown
 
-        metadata = {}
-        for line in front_matter_raw.split('\n'):
-            if ':' in line:
-                key, value = line.split(':', 1)
-                metadata[key.strip()] = value.strip().strip("'")
-        
-        # Convert markdown body to HTML
-        body_html = markdown.markdown(body_markdown)
+# Dossiers d'entrée/sortie
+INPUT_DIR = Path("blog")                  # fichiers .md source (ex: blog/mon-post.md)
+OUTPUT_DIR = Path("public/blog")          # pages HTML générées
+INDEX_FILE = OUTPUT_DIR / "index.json"    # listing pour la page blog
 
-        slug = filename.replace('.md', '')
-        post_data = {
-            'title': metadata.get('title', slug.replace('-', ' ').title()),
-            'author': metadata.get('author', 'Ora Nergy'),
-            'date': metadata.get('date', 'YYYY-MM-DD'),
-            'image': metadata.get('image', ''),
-            'description': metadata.get('description', ''),
-            'slug': slug,
-            'body_html': body_html
-        }
-        posts.append(post_data)
-
-        # Generate individual HTML page for the post
-        post_html_path = os.path.join(OUTPUT_DIR, f'{slug}.html')
-        with open(post_html_path, 'w', encoding='utf-8') as f_html:
-            html_content = f"""
-<!-- Hero Section -->
-<section class="hero" style="background: linear-gradient(rgba(0,0,0,0.4  ), rgba(0,0,0,0.4)), url('{post_data['image']}')">
+HTML_TEMPLATE = """<!-- Hero Section -->
+<section class="hero" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{image}')">
     <div class="hero-content">
         <div class="hero-badge">📝 Blog</div>
-        <h1>{post_data['title']}</h1>
-        <p>{post_data['description']}</p>
-        <p>Par {post_data['author']} le {post_data['date']}</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
+        <p>Par {author} le {date}</p>
     </div>
 </section>
 
 <!-- Article Content -->
 <section class="section section-white">
     <div class="container blog-post-content">
-        {post_data['body_html']}
+        {body_html}
     </div>
 </section>
 
@@ -58,12 +36,8 @@
             <p class="section-subtitle text-white">Contactez-nous pour un devis gratuit et personnalisé</p>
         </div>
         <div class="hero-buttons">
-            <a href="../contact.html" class="btn btn-white">
-                Demander un devis
-            </a>
-            <a href="tel:0745058029" class="btn btn-secondary">
-                07 45 05 80 29
-            </a>
+            <a href="../contact.html" class="btn btn-white">Demander un devis</a>
+            <a href="tel:0745058029" class="btn btn-secondary">07 45 05 80 29</a>
         </div>
     </div>
 </section>
@@ -96,7 +70,7 @@
             <h3>Contact</h3>
             <p>📞 <a href="tel:0745058029" style="color: #10b981;">07 45 05 80 29</a></p>
             <p>📧 <a href="mailto:direction@oranergy.com" style="color: #10b981;">direction@oranergy.com</a></p>
-            <p>📍 1 rue du Pré Saint Gervais  \n93500 Pantin</p>
+            <p>📍 1 rue du Pré Saint Gervais<br>93500 Pantin</p>
         </div>
     </div>
     <div class="footer-bottom">
@@ -110,22 +84,82 @@
 </footer>
 
 <script src="../js/main.js"></script>
-# Sort posts by date (newest first)
-posts.sort(key=lambda x: x.get('date', '0000-00-00'), reverse=True)
+"""
 
-# Create index.json with simplified post data for the blog listing page
-index_posts = []
-for post in posts:
-    index_posts.append({
-        'title': post['title'],
-        'author': post['author'],
-        'date': post['date'],
-        'image': post['image'],
-        'description': post['description'],
-        'slug': post['slug']
-    })
+def parse_front_matter_and_body(content: str):
+    """Retourne (metadata:dict, body_md:str). Front matter délimité par --- au début."""
+    metadata = {}
+    body_md = content
+    if content.startswith('---'):
+        parts = content.split('---', 2)
+        if len(parts) >= 3:
+            front_matter_raw = parts[1]
+            body_md = parts[2].lstrip()
+            for line in front_matter_raw.split('\n'):
+                if ':' in line:
+                    key, value = line.split(':', 1)
+                    metadata[key.strip()] = value.strip().strip("'").strip('"')
+    return metadata, body_md
 
-with open(INDEX_FILE, 'w', encoding='utf-8') as f:
-    json.dump(index_posts, f, indent=2, ensure_ascii=False)
+def safe_parse_date(s: str):
+    """Parse YYYY-MM-DD → datetime.date pour tri. Si invalide, renvoie date minimale."""
+    try:
+        return datetime.strptime(s, "%Y-%m-%d").date()
+    except Exception:
+        return datetime.min.date()
 
-print(f"Generated {len(posts)} blog posts and {INDEX_FILE}")
+def build_post(md_path: Path):
+    content = md_path.read_text(encoding="utf-8")
+    metadata, body_md = parse_front_matter_and_body(content)
+    body_html = markdown.markdown(body_md, extensions=["extra", "toc", "sane_lists"])
+
+    slug = md_path.stem
+    post_data = {
+        "title": metadata.get("title", slug.replace("-", " ").title()),
+        "author": metadata.get("author", "Ora Nergy"),
+        "date": metadata.get("date", "0000-00-00"),
+        "image": metadata.get("image", ""),
+        "description": metadata.get("description", ""),
+        "slug": slug,
+        "body_html": body_html,
+    }
+
+    # Écrit la page HTML individuelle
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    html_path = OUTPUT_DIR / f"{slug}.html"
+    html = HTML_TEMPLATE.format(**post_data)
+    html_path.write_text(html, encoding="utf-8")
+
+    return post_data
+
+def main():
+    md_files = sorted(glob.glob(str(INPUT_DIR / "*.md")))
+    if not md_files:
+        print(f"Aucun fichier Markdown dans {INPUT_DIR.resolve()}")
+        return
+
+    posts = [build_post(Path(p)) for p in md_files]
+
+    # Tri du plus récent au plus ancien
+    posts.sort(key=lambda x: safe_parse_date(x.get("date", "0000-01-01")), reverse=True)
+
+    # Index JSON pour le listing
+    index_posts = [
+        {
+            "title": p["title"],
+            "author": p["author"],
+            "date": p["date"],
+            "image": p["image"],
+            "description": p["description"],
+            "slug": p["slug"],
+        }
+        for p in posts
+    ]
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    INDEX_FILE.write_text(json.dumps(index_posts, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    print(f"Généré {len(posts)} articles et {INDEX_FILE}")
+
+if __name__ == "__main__":
+    main()
