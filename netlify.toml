@@ -1,6 +1,11 @@
 [build]
-command = "pip install markdown && python3.11 generate_blog.py"
-publish = "."
+# 1) build your blog html/json into /public (so Vite picks it up)
+# 2) then build the site with Vite
+command = "python3.11 -V && pip install markdown && python3.11 generate_blog.py && pnpm build"
+publish = "dist"
+
 [build.environment]
+NODE_VERSION = "20.12.2"
 PYTHON_VERSION = "3.11"
-NPM_FLAGS = "--legacy-peer-deps --no-optional"
+PNPM_VERSION = "10.4.1"
+NPM_FLAGS = "--silent=false"
